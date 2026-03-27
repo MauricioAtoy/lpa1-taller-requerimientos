@@ -1,2 +1,64 @@
 rich
 
+# Hotel
+#   nombre
+#   direccion
+#   telefono
+#   correo electronico
+#   coordenadas
+#   servicios
+#       restaurante
+#       piscina
+#       gym
+#   Galeria con fotos del hotel
+#   Estado:activo / inactivo
+#   se obtiele calificacion general co el promeio de las habitaciones
+
+# Ofertas
+#   mostrar promociones por temporada / descuentos / paquetes especiales.
+
+# Servicioes adicionales
+#   estacionamiento
+#   area de coworking
+
+# Habitaciones
+#   Tipo
+#   Desctipcion
+#    precio
+#   servicios incluidos
+#   capacidad
+#   fotos
+#   estado de la habitación: Activo / Inactivo
+#   precio por habitacion
+#   cada habitacion tiene calificacion por el huesped y se promedian todas
+#   se promedian las calificaciones de la habitacion para obtener un puntaje promedio de la misma
+
+# Condiciones de pago y cancelacion
+#   especificar las formas de cancelacion del hotel y las diferentes politicas.
+#   tambien especificar si hay habitaciones con politicas diferentes
+#   Especificar las formas de reembolso y penalidades si aplica
+
+# Clientes ------------------
+#   nombre completo
+#   numero de telefono
+#   correo electronico
+#   direccion
+
+# Filtros de busqueda para que el cliente selecciones una habitacion
+#    fecha
+#   ubicacion
+#   calificacion
+#   precio
+# (se pueden elegir varios)
+
+# detalles de la habitacion que puede ver el cliente
+#   descripcion con:
+#         caracteristicas
+#       servicios
+#       fotos
+#       calificaciones y comentarios de otros clientes
+
+# Reservas --------------------
+#   Cliente selecciona y confirma su seleccion de habitacion
+#   el cliente procede a realizar el pago
+#   con el pago confirmado la reserva queda efectuada (se muestra un comprobante con la informacion de la reserva)
