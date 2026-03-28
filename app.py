@@ -64,11 +64,12 @@ class cliente :
         self.num_telefono = num_telefono
         self.correo_electronico = correo_electronico
         self.direccion = direccion
-        self.calificaciones = []
+        self.calificaciones = [] self.calificaciones
         
-    def calificar_hab (self, calificacion_hab):
-        self.calificacion_hab = calificacion_hab
-        return calificacion_hab
+    def calificar_hab (self,habitacion, calificacion):
+        self.calificaciones.append(calificacion)
+        habitacion.agregar_calificaion(calificacion)
+    
         
         
         pass
