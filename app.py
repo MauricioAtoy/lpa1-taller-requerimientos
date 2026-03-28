@@ -1,5 +1,7 @@
 # TODO: desarrollar el sistema
 
+import statistics
+
 class Hotel :
     def __init__(self, nombre, direccion, telefono, email, coordenadas, servicios, Estado):
         self.nombre = nombre
@@ -37,14 +39,39 @@ class Hotel :
             print("Servicios disponibles:")
             for servicio in self.servicios:
                 print(f"- {servicio}")
-        def calificar_hotel(self, calificacion):
-            print(f"Hotel '{self.nombre}' calificado con {calificacion} estrellas.")
+        def calificar_hotel(self, calificacionH):
+            self.calificacionH = calificacionH
+            return statistics.mean(self.calificacionH)
         
-class Habitacion (Hotel) :
-    def __init__(self, numero, tipo, precio, disponibilidad):
-        super().__init__(nombre="", direccion="", telefono="", email="", coordenadas=(), servicios=[], Estado="")
+class Habitacion :
+    def __init__(self, numero, tipo, precio, estado, descripcion, servicios_hab, capacidad, fotos):
         self.numero = numero
         self.tipo = tipo
         self.precio = precio
-        self.disponibilidad = disponibilidad
+        self.estado = estado
+        self.descripcion = descripcion
+        self.servicios_hab = servicios_hab
+        self.capacidad = capacidad
+        self.fotos = fotos
+        
+    def calificacion_hab (self,)
+        
+        pass
+        
+class cliente :
+    def __init__(self, nombre, num_telefono, correo_electronico, direccion):
+        self.nombre = nombre
+        self.num_telefono = num_telefono
+        self.correo_electronico = correo_electronico
+        self.direccion = direccion
+        self.calificaciones = []
+        
+    def calificar_hab (self, calificacion_hab):
+        self.calificacion_hab = calificacion_hab
+        return calificacion_hab
+        
+        
+        pass
+        
+
         
