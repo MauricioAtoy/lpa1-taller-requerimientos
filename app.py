@@ -48,7 +48,7 @@ class Hotel :
     
     def agregar_oferta(self, oferta):
         self.ofertas.append(oferta)
-        
+
     def definir_politica(self, politica):
         self.politica_cancelacion = politica
 
@@ -125,6 +125,19 @@ class Reserva:
             total = self.oferta.aplicar_descuento(total)
 
         return total
+    
+    def cancelar_reserva(self, politica):
+        hoy = datetime.now()
+        dias_antes = (self.fecha_inicio - hoy).days
+
+        if dias_antes >= politica.dias_anticipacion:
+            if politica.reembolso:
+                print("Reembolso completo")
+            else:
+                print("No hay reembolso")
+        else:
+            penalidad = self.total * politica.penalidad
+            print(f" Cancelación tardía. Penalidad: ${penalidad}")
     
 class Oferta:
     def __init__(self, nombre, descuento, descripcion):
