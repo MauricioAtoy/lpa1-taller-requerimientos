@@ -13,6 +13,7 @@ class Hotel :
         self.servicios = servicios
         self.Estado = Estado
         self.ofertas = []
+        self.politica_cancelacion = None
 
     def mostrar_informacion(self):
             print(f"Nombre: {self.nombre}")
@@ -44,8 +45,12 @@ class Hotel :
     def calificar_hotel(self, calificacionH):
             self.calificacionH = calificacionH
             return statistics.mean(self.calificacionH)
+    
     def agregar_oferta(self, oferta):
         self.ofertas.append(oferta)
+        
+    def definir_politica(self, politica):
+        self.politica_cancelacion = politica
 
 class Habitacion :
     def __init__(self, numero, tipo, precio, estado, descripcion, servicios_hab, capacidad, fotos):
@@ -81,12 +86,14 @@ class cliente :
 
         
 class Reserva:
-    def __init__(self, cliente, habitacion, fecha_inicio, fecha_fin):
+    def __init__(self, cliente, habitacion, fecha_inicio, fecha_fin, oferta=None):
         self.cliente = cliente
         self.habitacion = habitacion
         self.fecha_inicio = datetime.strptime(fecha_inicio, "%Y-%m-%d")
         self.fecha_fin = datetime.strptime(fecha_fin, "%Y-%m-%d")
         self.pagada = False
+        self.total = self.calcular_total()
+        self.oferta = oferta
         self.total = self.calcular_total()
 
     def calcular_total(self):
@@ -110,7 +117,15 @@ class Reserva:
         Total pagado: ${self.total}
         =======================
         """
+    def calcular_total(self):
+        dias = (self.fecha_fin - self.fecha_inicio).days
+        total = dias * self.habitacion.precio
 
+        if self.oferta:
+            total = self.oferta.aplicar_descuento(total)
+
+        return total
+    
 class Oferta:
     def __init__(self, nombre, descuento, descripcion):
         self.nombre = nombre
@@ -120,4 +135,8 @@ class Oferta:
     def aplicar_descuento(self, precio):
         return precio - (precio * self.descuento)
 
-        
+class PoliticaCancelacion:
+    def __init__(self, dias_anticipacion, reembolso, penalidad):
+        self.dias_anticipacion = dias_anticipacion
+        self.reembolso = reembolso
+        self.penalidad = penalidad       
