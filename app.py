@@ -53,10 +53,15 @@ class Habitacion :
         self.servicios_hab = servicios_hab
         self.capacidad = capacidad
         self.fotos = fotos
-        
-    def calificacion_hab (self,)
-        
-        pass
+        self.calificaciones = []
+
+    def calificacion_hab (self, calificacion):
+        self.calificaciones.append(calificacion)
+    
+    def promedio_calificacion(self):
+        if not self.calificaciones:
+            return 0
+        return sum(self.calificaciones) / len(self.calificaciones)
         
 class cliente :
     def __init__(self, nombre, num_telefono, correo_electronico, direccion):
@@ -68,11 +73,8 @@ class cliente :
         
     def calificar_hab (self,habitacion, calificacion):
         self.calificaciones.append(calificacion)
-        habitacion.agregar_calificaion(calificacion)
-    
-        
-        
-        pass
+        habitacion.agregar_calificacion(calificacion)
+
         
 
         
